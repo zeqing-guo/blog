@@ -68,4 +68,7 @@ theme: scribble
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
-  type:
+  type: git
+  repo: https://github.com/zeqing-guo/blog
+  branch: gh-pages
+  message: ite updated: {{ now('YYYY-MM-DD HH:mm:ss') }}
