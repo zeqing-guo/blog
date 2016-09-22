@@ -71,4 +71,3 @@ deploy:
   type: git
   repo: https://github.com/zeqing-guo/blog
   branch: gh-pages
-  message: ite updated: {{ now('YYYY-MM-DD HH:mm:ss') }}
