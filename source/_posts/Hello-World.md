@@ -4,32 +4,6 @@ date: 2016-09-22 23:50:21
 tags:
 ---
 
-I am a placeholder post. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+重新开坑写博客。
 
-> Boom. I am a blockquote.
-> 
-> Say something really clever here.
-
-1. List with code
-
-```
-not highlighted
-multi line
-```
-
-2. List with code
-
-``` javascript
-var dom = document.getElementById('boom')
-console.log(dom);
-```
-
-Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.
-
-Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
-
-``` ruby
-def whaaa
-  puts "I have a friend called Bobobmob."
-end
-```
+不知道这次能坚持多久.w.
