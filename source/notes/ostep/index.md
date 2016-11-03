@@ -4,29 +4,7 @@ date: 2016-11-03 14:35:13
 mathjax: true
 ---
 
-<!-- markdown-toc start - Don't edit this section. Run M-x markdown-toc-generate-toc again -->
-**Table of Contents**
-
-- [Virtualization](#virtualization)
-    - [The Abstraction: The process](#the-abstraction-the-process)
-    - [CPU Virtualization (Scheduling Policies)](#cpu-virtualization-scheduling-policies)
-        - [Workload Assumptions](#workload-assumptions)
-        - [Scheduling metric](#scheduling-metric)
-        - [First In, First Out (FIFO)](#first-in-first-out-fifo)
-        - [Shortest Job First (SJF)](#shortest-job-first-sjf)
-        - [Shortest Time-toCompletion First (STCF)](#shortest-time-tocompletion-first-stcf)
-        - [A New Metric: Response Time](#a-new-metric-response-time)
-        - [Round Robin (RR)](#round-robin-rr)
-        - [Incorporating I/O](#incorporating-io)
-        - [The Multi-Level Feedback Queue](#the-multi-level-feedback-queue)
-            - [How to Change Priority](#how-to-change-priority)
-            - [The Priority Boost](#the-priority-boost)
-            - [Better Accounting](#better-accounting)
-            - [Tuning MLFQ And Other Issues](#tuning-mlfq-and-other-issues)
-
-<!-- markdown-toc end -->
-
-# Virtualization #
+# Virtualization
 
 ## The Abstraction: The process ##
 
