@@ -4,9 +4,32 @@ date: 2016-11-03 14:35:13
 mathjax: true
 ---
 
+<!-- markdown-toc start - Don't edit this section. Run M-x markdown-toc-generate-toc again -->
+**Table of Contents**
+
+- [Virtualization](#Virtualization)
+    - [The Abstraction: The Process](#The-Abstraction-The-Process)
+    - [CPU Virtualization (Scheduling Policies)](#CPU-Virtualization-Scheduling-Policies)
+        - [Workload Assumptions](#workload-assumptions)
+        - [Scheduling metric](#scheduling-metric)
+        - [First In, First Out (FIFO)](#first-in-first-out-fifo)
+        - [Shortest Job First (SJF)](#shortest-job-first-sjf)
+        - [Shortest Time-toCompletion First (STCF)](#shortest-time-tocompletion-first-stcf)
+        - [A New Metric: Response Time](#a-new-metric-response-time)
+        - [Round Robin (RR)](#round-robin-rr)
+        - [Incorporating I/O](#incorporating-io)
+        - [The Multi-Level Feedback Queue](#the-multi-level-feedback-queue)
+            - [How to Change Priority](#how-to-change-priority)
+            - [The Priority Boost](#the-priority-boost)
+            - [Better Accounting](#better-accounting)
+            - [Tuning MLFQ And Other Issues](#tuning-mlfq-and-other-issues)
+
+<!-- markdown-toc end -->
+
+
 # Virtualization
 
-## The Abstraction: The process ##
+## The Abstraction: The Process ##
 
 The abstraction provided by the OS of a running program is something we call a **process**.
 
@@ -184,4 +207,34 @@ Many schedulers have a few other features:
 
 - Some schedulers reserve the highest priority levels for operating system work.
 - Some systems also allow some user **advice** to help set priorities.
+
+## The Abstraction: Address Spaces ##
+
+In order to implement **time sharing** **efficiently** we leave processes in memory to while switching between them. In particular, allowing multiple programs to reside concurrently in memory makes **protection** an important issue.
+
+### The Address Space ###
+
+**Address space** is the running program's view of memory in the sytem.
+
+The address space of a process contains all of the memory state of the running program:
+
+- Code of the program
+- Stack
+- Heap
+- Etc.
+
+Virtualizing memory: the running program thinks it is loaded into memory at a particular address and has a potentially very large address space.
+
+### Goals ###
+
+To make sure the OS virtualize memory, we need some goals to guide us:
+
+1. **Transparency:** the OS should implement virtual memory in a way that is invisible to the running program.
+2. **Efficiency**
+3. **Protection:** The OS should make sure to protect processes from one another as well as the OS itself from processes (isolation).
+
+
+
+
+
 
