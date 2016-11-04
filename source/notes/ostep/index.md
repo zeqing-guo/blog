@@ -233,8 +233,24 @@ To make sure the OS virtualize memory, we need some goals to guide us:
 2. **Efficiency**
 3. **Protection:** The OS should make sure to protect processes from one another as well as the OS itself from processes (isolation).
 
+## Interlude: Memory API ##
 
+Type of memory:
 
+1. Stack
+2. Heap
 
+API:
+
+- `malloc()` 
+- `free()`
+
+## Mechanism: Address Translation ##
+
+Strategy in virtualizing memory:
+
+1. Efficiency
+2. Control
+3. Virtualization
 
 
