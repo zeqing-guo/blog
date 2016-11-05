@@ -9,7 +9,7 @@ You can contact me via my email: `i at zqguo dot com`.
 
 ---
 
-[Github](Github: https://github.com/zeqing-guo)
+[Github](https://github.com/zeqing-guo)
 [Douban](https://www.douban.com/people/zeqingg)
 [Zhihu](https://www.zhihu.com/people/jason-guo-92)
 [Twitter](https://twitter.com/Jason_zq_Guo)  
