@@ -7,9 +7,9 @@ mathjax: true
 <!-- markdown-toc start - Don't edit this section. Run M-x markdown-toc-generate-toc again -->
 **Table of Contents**
 
-- [Virtualization](#Virtualization)
-    - [The Abstraction: The Process](#The-Abstraction-The-Process)
-    - [CPU Virtualization (Scheduling Policies)](#CPU-Virtualization-Scheduling-Policies)
+- [Virtualization](#virtualization)
+    - [The Abstraction: The Process](#the-abstraction-the-process)
+    - [CPU Virtualization (Scheduling Policies)](#cpu-virtualization-scheduling-policies)
         - [Workload Assumptions](#workload-assumptions)
         - [Scheduling metric](#scheduling-metric)
         - [First In, First Out (FIFO)](#first-in-first-out-fifo)
@@ -23,6 +23,12 @@ mathjax: true
             - [The Priority Boost](#the-priority-boost)
             - [Better Accounting](#better-accounting)
             - [Tuning MLFQ And Other Issues](#tuning-mlfq-and-other-issues)
+    - [The Abstraction: Address Spaces](#the-abstraction-address-spaces)
+        - [The Address Space](#the-address-space)
+        - [Goals](#goals)
+    - [Interlude: Memory API](#interlude-memory-api)
+    - [Mechanism: Address Translation](#mechanism-address-translation)
+        - [Dynamic (Hardware-based) Relocation](#dynamic-hardware-based-relocation)
 
 <!-- markdown-toc end -->
 
@@ -252,5 +258,36 @@ Strategy in virtualizing memory:
 1. Efficiency
 2. Control
 3. Virtualization
+
+Assumptions:
+
+1. Usre's address space must be placed *contiguously* in physical memory
+2. The size of address space is *less than the size of physical memory*
+3. Each address space is eactly the *same size*
+
+### Dynamic (Hardware-based) Relocation ###
+
+Two hardware registers within each CPU:
+
+1. **Base register**
+2. **Bounds** (sometimes called a limit register)
+  - Bounds register is there to help with protection
+
+In this setup:
+
+- Programs are written and compiled as if it is loaded at address zero
+- When a program starts running, the OS decides where in physical memory it should be loaded and sets the base register to that value
+
+$$physical\ address = virtual\ address + base$$
+
+Problems need to be solved:
+
+1. The OS must take action when a process is created, finding space for its address space in memory.
+2. The OS must do some work when a process is terminated.
+3. The OS must also perform a few additional steps when a context switch occurs.
+4. The OS must provide **exception handlers**.
+
+The disadvantages of dynamic relocation: when the process stack and heap are not too big, all of the space between the stack and heap is simply wasted (**internal fragmentation**).
+
 
 
