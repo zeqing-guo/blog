@@ -29,6 +29,9 @@ mathjax: true
     - [Interlude: Memory API](#interlude-memory-api)
     - [Mechanism: Address Translation](#mechanism-address-translation)
         - [Dynamic (Hardware-based) Relocation](#dynamic-hardware-based-relocation)
+    - [Segmentation](#segmentation)
+        - [Support for Sharing](#support-for-sharing)
+        - [OS Support](#os-support)
 
 <!-- markdown-toc end -->
 
@@ -289,5 +292,43 @@ Problems need to be solved:
 
 The disadvantages of dynamic relocation: when the process stack and heap are not too big, all of the space between the stack and heap is simply wasted (**internal fragmentation**).
 
+## Segmentation ##
 
+A segment is a contiguous portion of the address space of a particular length.
+
+Three logically-different segments:
+
+1. Code
+2. Stack
+3. Heap
+
+OS places each one of those segments in different parts of physical memory to avoid filling physical memory with unused virtual address space.
+
+Thus each process needs three base and bounds register pairs.
+
+Which segment are we referring to?
+
+- Explicit approach: use the top few bits of the virtual address to record the segment type.
+- Implicit approach: the hardware determines the segment by noticing how the address was formed.
+
+Pay attention to the stack, which *grows backwards*.
+
+### Support for Sharing ###
+
+To support sharing, we need a little extra support from the hardware, in the form of **protection bits**.
+
+- Ready
+- Write
+- Execute
+
+### OS Support ###
+
+There are some new OS issues to support segmentation:
+
+1. What should the OS do on a context switch?
+  - The segment registers must be saved and restored.
+2. How to manage free space in physical memory?
+  - The general problem that arises is that physical memory quickly becomes full of little holes of free space.
+    1. One solution would be to **compact** physical memory by rearranging the existing segments.
+    2. A simpler approach is to use a free-list management algorithm that tries to keep large extents of memory available for allocation. (There are literally hundreds of approaches that people have taken)
 
