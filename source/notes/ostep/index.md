@@ -332,3 +332,84 @@ There are some new OS issues to support segmentation:
     1. One solution would be to **compact** physical memory by rearranging the existing segments.
     2. A simpler approach is to use a free-list management algorithm that tries to keep large extents of memory available for allocation. (There are literally hundreds of approaches that people have taken)
 
+## Free-Space Management ##
+
+To track the size of allocated regions, most allocators store a little bit of extra information in a **header** block which is kept in memory.
+
+```c
+typedef struct __header_t {
+  int size;
+  int magic;
+} header_t;
+```
+
+In the structure, the magic number provide additional integrity checking, and other information.
+
+When the user calls `free(ptr)`, the library then uses simple pointer arithmetic to figure out where the header begins:
+
+```c
+void free(void *ptr) {
+  header_t *hptr = (void *) ptr - sizeof(header_t);
+  // ...
+}
+```
+
+### Basic Strategy ###
+
+- Best fit
+  - Best fit tries to reduce wasted space.
+  - A heavy performance penalty to search for the correct free block.
+- Worst fit
+  - Worst fit tries to leave big chunks free instead of lots of small chunks that can arise from a best-fit approach.
+  - The same performance problem as best fit.
+- First fit
+  - First fit has the advantage of speed.
+  - Sometimes pollutes the beginning of the free list with small objects.
+- Next fit
+
+### Other Approaches ###
+
+- Segregated lists
+- Buddy Allocation
+
+## Pagine: Introduction ##
+
+- Page: fixed-sized units.
+- Page frames: an array of fixed-sized slots.
+
+Advantages:
+
+1. Flexibility
+2. Simplicity
+
+Page table: a per-process data structure to store address translations.
+
+## Beyond Physical Memory: Mechanisms ##
+
+How can the OS make use of a larger, slower devices to tranparently provide the illusion of a large virtual address?
+
+### Swap Space ###
+
+Swap space: reserve some space on the disk fgor moving pages back and forth.
+
+- Present bit
+- Page fault
+
+Why hardware doesn't handle page faults
+
+1. Page faults to disk is so slow that the extra overheads of running software are minimal
+2. To be able to handle a page fault, the hardware would have to understand swap space, how to issue I/Os to the disk, and a lot of other details which it currently doesn't know much about.
+
+## Beyond Physical Memory: Policies ##
+
+How can the OS decide which page to evict from memory?
+
+### Chache Management ###
+
+- Cache misses/cache hits
+- Average memory access time
+
+$$AMAt = (P_{Hit} \times T_M) + (P_{Miss} \times T_D)$$
+
+Where $T_M$ represents the cost of accessing memory, $T_D$ the cost of accessing disk, $P_{Hit}$ the probability of finding the data in the cache, and P_{Miss} the probability of not finding the data in the cache.
+
