@@ -22,7 +22,7 @@ tags: Programming
   - 和上面可以同时进行的是刷[Philip Wadler](http://homepages.inf.ed.ac.uk/wadler/)关于Monad的论文，推荐*Monads for functional programming*和*The essence of functional programming*。
   - 感觉对Monad有一些掌握后可以尝试用Haskell写一个Lisp的解释器 https://en.wikibooks.org/wiki/Write_Yourself_a_Scheme_in_48_Hours 
 - 接下来可以看看Penn的*CIS194*，这门课每年的在Monad之后讲的内容不一样，包括一些并发、GUI和类型推导理论里的最前沿的内容。可以看看然后做做里面的作业。
-- 接着可以开始做*[NICTA course](https://github.com/NICTA/course)*，非常好的Haskell进阶课程，形式也很有意思。**强烈推荐这个课程，里面的代码一定要尽量写完，非常有意思**
+- 接着可以开始做*[NICTA course](https://github.com/NICTA/course)*，非常好的Haskell进阶课程，形式也很有意思。**（强烈推荐这个课程，里面的代码一定要尽量写完，非常有意思）**
 - 这个阶段后看自己的兴趣选择喜欢的东西学学。
 
 ## 资料汇总
@@ -56,18 +56,25 @@ tags: Programming
   - 一篇关于CPS的论文，CPS算是一种古老的黑科技，Lisp, Haskell, JS, Scala, C++里面都有，但是个人觉得Lisp和Haskell用得最优雅。
 - *The Little Schemer*
   - 王垠在印第安纳的老板写的scheme的书，介绍了CPS和Y Combinator，学Haskell可以参考。
+- Idris 
+  - http://www.idris-lang.org/
+  - 一个通用的依赖类型的函数式编程语言，可以看做升级版的Haskell。
+- Coq
+  - https://coq.inria.fr/
+  - 一个用来定理证明的依赖类型的函数式编程语言。
+  - *[Software Foundations](https://www.cis.upenn.edu/~bcpierce/sf/current/index.html)*，programming language领域很著名的书，没看过也要知道名字=w=
   
 ## 编辑器
 
-- Emacs的Haskell mode
-- Spacemacs的Haskell Layer （我目前用的，基于Emacs的Haskell mode）
-- Vim的Haskell mode
-- Intellij的Haskell插件
+- Emacs: Haskell mode
+- Spacemacs: Haskell Layer （我目前用的，基于Emacs的Haskell mode）
+- Vim: Haskell mode
+- Intellij: Haskell plugin
 
-推荐Emacs，Vim没用过，但Emacs的Haskell mode比Vim的出名很多，所以Emacs写Haskell应该更方便。IntelliJ不够智能，快捷键不好用，对cabal和stackage集成效果也不如Emacs。*（前几年的情况，现在不知道了）*
+推荐Emacs，Vim没用过，但Emacs的Haskell mode比Vim的出名很多（带有bias），所以Emacs写Haskell应该更方便。IntelliJ不够智能，快捷键不好用，对cabal和stackage集成效果也不如Emacs。*（前几年的情况，现在不知道了）*
 
 ## Haskell安装
 
 - 推荐使用Haskell官网的Haskell Platform。
 
-*注：这个好像过时了，现在比较流行用stackage，毕竟cabal hell太讨厌了*
+*注：这个好像过时了，现在比较流行用stackage，毕竟cabal hell太讨厌了。*
