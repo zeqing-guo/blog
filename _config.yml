@@ -70,4 +70,5 @@ theme: scribble
 deploy:
   type: git
   repo: https://github.com/zeqing-guo/blog
+  branch: gh-pages
 
