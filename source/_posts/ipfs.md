@@ -80,9 +80,9 @@ MAC和Linux用户请在命令行里输入`export $IPFS_PATH=/path/to/ipfsrepo`�
 ipfs get hash
 ```
 
-其中hash指的是文件或文件夹的hash值。
+其中hash指的是文件或文件夹的哈希值。
 
-使用上面的命令下载下来的文件以hash值命名，希望下载为原文件名请使用下面的命令：
+使用上面的命令下载下来的文件以哈希值命名，希望下载为原文件名请使用下面的命令：
 
 ```shell
 ipfs get hash -o filename.extension

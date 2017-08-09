@@ -79,8 +79,8 @@
 <p>MAC和Linux用户请在命令行里输入<code>export $IPFS_PATH=/path/to/ipfsrepo</code>，windows用户请在系统环境变量中添加<code>IPFS_PATH</code>为<code>/path/to/ipfsrepo</code>。其中<code>/path/to/ipfsrepo</code>指的是制定的大容量磁盘。</p>
 <p>上传文件或者文件夹后ipfs返回文件/文件夹对应的哈希值（hash），哈希值可以理解成文件/文件夹的身份证，我们下载文件时输入这些哈希值就能找到对应的文件了。</p>
 <h3 id="1-1-4-下载文件"><a href="#1-1-4-下载文件" class="headerlink" title="1.1.4 下载文件"></a>1.1.4 下载文件</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ipfs get hash</div></pre></td></tr></table></figure>
-<p>其中hash指的是文件或文件夹的hash值。</p>
-<p>使用上面的命令下载下来的文件以hash值命名，希望下载为原文件名请使用下面的命令：</p>
+<p>其中hash指的是文件或文件夹的哈希值。</p>
+<p>使用上面的命令下载下来的文件以哈希值命名，希望下载为原文件名请使用下面的命令：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ipfs get hash -o filename.extension</div></pre></td></tr></table></figure>
 <h3 id="浏览文件夹"><a href="#浏览文件夹" class="headerlink" title="浏览文件夹"></a>浏览文件夹</h3><p>当你需要浏览哈希值代表的文件夹下的内容时你可以使用以下命令，该命令会返回hash代表的文件夹下所有文件和文件夹的哈希值以及对应名称。</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ipfs ls hash</div></pre></td></tr></table></figure>
