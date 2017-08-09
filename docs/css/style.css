@@ -7,7 +7,8 @@ html, body {
 body {
   background: #f9f9f9;
   color: #303030;
-  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-family: "Helvetica Neue", "Helvetica", Arial, sans-serif;
+  -webkit-font-smoothing: subpixel-antialiased;
   font-weight: 400;
   font-size: 13px;
   line-height: 19px;
@@ -71,7 +72,7 @@ header {
 
 footer {
   width: 100%;
-  max-width: 768px;
+  max-width: 630;
   line-height: 2em;
   margin: auto;
   padding-bottom: 30px;
@@ -81,7 +82,7 @@ footer {
 
 #container {
   width: 100%;
-  max-width: 768px;
+  max-width: 630;
   background: #fff;
   margin: 40px auto 20px;
   border-radius: 7px;
@@ -260,6 +261,7 @@ section.post {
   section.post em strong {
     background-color: #ffffee;
     padding: 0 2px; }
+  /*
   section.post blockquote {
     padding: 0 1em;
     margin: 14px 0;
@@ -274,6 +276,40 @@ section.post {
     transition: all, 0.3s; }
     section.post blockquote:hover {
       color: #454545; }
+ */
+  section.post blockquote, section > p blockquote {
+    -webkit-transition: all, 0.3s;
+    -moz-transition: all, 0.3s;
+    -ms-transition: all, 0.3s;
+    -o-transition: all, 0.3s;
+    transition: all, 0.3s;
+    color: #606060;
+    background: #f9f9f9;
+    position: relative;
+    overflow: hidden;
+    display: block;
+    padding: 15px 60px; }
+    section.post blockquote:hover, section > p blockquote:hover {
+      color: #454545; }
+    section.post blockquote:hover:before, section > p blockquote:hover:before {
+      color: #b8cec7; }
+    section.post blockquote:before, section > p blockquote:before {
+      left: -3px; }
+    section.post blockquote:after, section > p blockquote:after {
+      right: -2px; }
+    section.post blockquote:before, section.post blockquote:after, section > p blockquote:before, section > p blockquote:after {
+      content: "^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^";
+      font-size: 24px;
+      overflow: hidden;
+      position: absolute;
+      top: 0px;
+      bottom: 0px;
+      line-height: 0.4em;
+      word-break: break-all;
+      color: #d0dfda;
+      display: block;
+      width: 7px !important;
+      white-space: normal; }
 
 pre {
   word-wrap: break-word;
